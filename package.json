@@ -1,9 +1,9 @@
 {
-  "name": "spiritualized-ai-bot",
+  "name": "spiritual-english-tutor",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 3016",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
@@ -14,7 +14,9 @@
     "@tanstack/react-query": "^5.101.0",
     "next": "16.2.7",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "sonner": "^2.0.7",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
