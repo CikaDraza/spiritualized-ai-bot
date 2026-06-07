@@ -7,13 +7,21 @@ import type { UserProfile } from "@/types/auth";
 
 export default async function DashboardPage() {
   const cookieHeader = (await cookies()).toString();
-  const res = await fetch(`${BACKEND_URL}/auth/me`, {
-    headers: { cookie: cookieHeader },
-    cache: "no-store",
-  });
 
-  // No / invalid session → bounce to login.
-  if (!res.ok) redirect("/login");
+  let res: Response | null = null;
+  try {
+    res = await fetch(`${BACKEND_URL}/auth/me`, {
+      headers: { cookie: cookieHeader },
+      cache: "no-store",
+    });
+  } catch {
+    // Backend unreachable — treat as unauthenticated instead of crashing the page.
+    res = null;
+  }
+
+  // No session / backend down / invalid → bounce to login.
+  // (redirect() must stay OUTSIDE the try/catch: it works by throwing, and a catch would swallow it.)
+  if (!res || !res.ok) redirect("/login");
 
   const profile = (await res.json()) as UserProfile;
 
