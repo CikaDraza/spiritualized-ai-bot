@@ -15,7 +15,7 @@ export default function LogoutButton() {
     try {
       await fetch("/api/auth/logout", { method: "POST" });
       toast.success("You have been logged out.");
-      router.push("/login");
+      router.push("/");
       router.refresh();
     } catch {
       toast.error("Could not log out. Please try again.");

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Flexio Lingua design tokens — Tailwind v4 @theme (handoff tailwind.config.ts adapted).
+/* Spiritualized Language Tutor design tokens — Tailwind v4 @theme (handoff adapted).
    Generates utilities: bg-primary, text-ink, rounded-card, shadow-soft, font-body, ... */
 @theme {
   --color-primary: #7c4dff;

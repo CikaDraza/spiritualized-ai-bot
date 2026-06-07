@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Flexio Lingua — AI Language Tutor",
+  title: "Spiritualized Language Tutor",
   description: "Learn English with an AI tutor that talks, corrects and guides you.",
 };
 

@@ -9,8 +9,11 @@ export default function LandingPage() {
     <main className="flex flex-1 flex-col px-[22px] pb-6 pt-4">
       {/* mini header */}
       <div className="flex items-center justify-between px-0.5 pt-1">
-        <div className="text-[19px] font-extrabold">
-          Flexio<span className="text-primary">Lingua</span>
+        <div className="leading-none">
+          <div className="text-[18px] font-extrabold">Spiritualized</div>
+          <div className="font-body text-[11px] font-semibold text-primary">
+            Language Tutor
+          </div>
         </div>
         <span className="rounded-pill bg-card px-3 py-1.5 font-body text-[12px] font-semibold text-muted2">
           EN · SR
@@ -45,8 +48,8 @@ export default function LandingPage() {
           <br />
           Your Lessons
         </h1>
-        <p className="max-w-[250px] font-body text-[13.5px] leading-[1.55] text-muted2">
-          AI tutor guides you, personalizes lessons and tracks progress — voice or text.
+        <p className="max-w-[260px] font-body text-[13.5px] leading-[1.55] text-muted2">
+          AI tutor te vodi, personalizuje lekcije i prati napredak — voice ili text.
         </p>
       </div>
 
