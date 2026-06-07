@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { LogOut } from "lucide-react";
 import { toast } from "sonner";
 
+/** Temporary logout entry on the dashboard until Settings (7.13) is built. */
 export default function LogoutButton() {
   const router = useRouter();
   const [pending, setPending] = useState(false);
@@ -27,9 +29,10 @@ export default function LogoutButton() {
       type="button"
       onClick={onLogout}
       disabled={pending}
-      className="w-fit rounded-lg border border-slate-700 px-4 py-2 text-slate-200 transition-colors hover:bg-slate-800 disabled:opacity-60"
+      className="flex w-full items-center justify-center gap-2 rounded-card bg-card px-4 py-3.5 text-[14px] font-bold text-danger disabled:opacity-60"
     >
-      {pending ? "Logging out…" : "Logout"}
+      <LogOut size={18} />
+      {pending ? "Logging out…" : "Log out"}
     </button>
   );
 }

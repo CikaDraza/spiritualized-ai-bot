@@ -1,39 +1,38 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Overpass, Inter } from "next/font/google";
 import { Toaster } from "sonner";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const overpass = Overpass({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-overpass",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
-  title: "Spiritualized Tutor",
-  description: "AI-powered English learning platform",
+  title: "Flexio Lingua — AI Language Tutor",
+  description: "Learn English with an AI tutor that talks, corrects and guides you.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${overpass.variable} ${inter.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <Header />
-        {children}
-        <Footer />
+      {/* Mobile-first: a white "app" column centred on a neutral page (desktop refined later). */}
+      <body className="min-h-dvh bg-[#E9EBF2]">
+        <div className="relative mx-auto flex min-h-dvh w-full max-w-[480px] flex-col bg-white">
+          {children}
+        </div>
         <Toaster richColors position="top-center" />
       </body>
     </html>
