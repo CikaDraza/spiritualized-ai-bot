@@ -1,14 +1,13 @@
-import Link from "next/link";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { Bell, Plus } from "lucide-react";
+import { Bell } from "lucide-react";
 
 import BottomNav from "@/components/BottomNav";
 import LogoutButton from "@/components/LogoutButton";
+import SpacesView from "@/components/SpacesView";
 import { BACKEND_URL } from "@/lib/backend";
 import type { UserProfile } from "@/types/auth";
-
-const MAX_SPACES = 5;
+import { MAX_SPACES, type Space } from "@/types/space";
 
 function initials(name: string | null, email: string): string {
   if (name?.trim()) {
@@ -21,18 +20,30 @@ function initials(name: string | null, email: string): string {
 export default async function LearningSpacesPage() {
   const cookieHeader = (await cookies()).toString();
 
-  let res: Response | null = null;
+  let meRes: Response | null = null;
   try {
-    res = await fetch(`${BACKEND_URL}/auth/me`, {
+    meRes = await fetch(`${BACKEND_URL}/auth/me`, {
       headers: { cookie: cookieHeader },
       cache: "no-store",
     });
   } catch {
-    res = null;
+    meRes = null;
   }
-  if (!res || !res.ok) redirect("/login");
+  if (!meRes || !meRes.ok) redirect("/login");
+  const profile = (await meRes.json()) as UserProfile;
 
-  const profile = (await res.json()) as UserProfile;
+  // Spaces require a verified email on the backend (403 otherwise) — treat as empty.
+  let spaces: Space[] = [];
+  try {
+    const r = await fetch(`${BACKEND_URL}/spaces`, {
+      headers: { cookie: cookieHeader },
+      cache: "no-store",
+    });
+    if (r.ok) spaces = (await r.json()) as Space[];
+  } catch {
+    spaces = [];
+  }
+
   const name = profile.full_name?.trim() || profile.email;
 
   return (
@@ -62,27 +73,19 @@ export default async function LearningSpacesPage() {
           </button>
         </div>
 
-        {/* title */}
         <h1 className="mt-5 text-[26px] font-extrabold leading-tight">My Learning Spaces</h1>
         <p className="mt-1 font-body text-[12.5px] text-muted2">
-          0 of {MAX_SPACES} spaces used
+          {spaces.length} of {MAX_SPACES} spaces used
         </p>
 
-        {/* empty space cards (create flow wired next) */}
-        <div className="mt-[18px] flex flex-col gap-3">
-          {Array.from({ length: MAX_SPACES }).map((_, i) => (
-            <Link
-              key={i}
-              href="#"
-              className="flex items-center justify-center gap-2 rounded-card border-2 border-dashed border-[#d7d3ec] py-[18px] font-bold text-primary"
-            >
-              <Plus size={18} />
-              Start new space
-            </Link>
-          ))}
-        </div>
+        {!profile.is_verified && (
+          <div className="mt-3 rounded-tile bg-primary-50 px-4 py-3 font-body text-[12.5px] text-primary-deep">
+            Verify your email to start creating learning spaces.
+          </div>
+        )}
 
-        {/* temporary logout until Settings */}
+        <SpacesView spaces={spaces} />
+
         <div className="mt-6">
           <LogoutButton />
         </div>
