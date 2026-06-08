@@ -1,7 +1,9 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 // Public routes: "/" (landing), "/login", "/register". Everything under PROTECTED needs a session.
-const PROTECTED = ["/dashboard"];
+// /admin additionally requires role "admin" — enforced server-side in app/admin/layout.tsx
+// (the proxy can't read the role from the httpOnly cookie).
+const PROTECTED = ["/app", "/admin"];
 const AUTH_PAGES = ["/login", "/register"];
 
 const startsWith = (pathname: string, base: string) =>
@@ -16,14 +18,14 @@ export function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  // Already signed in → keep users out of the auth pages.
+  // Already signed in → keep users out of the auth pages (role-correct home resolved in /app).
   if (AUTH_PAGES.some((p) => startsWith(pathname, p)) && isAuthed) {
-    return NextResponse.redirect(new URL("/dashboard", request.url));
+    return NextResponse.redirect(new URL("/app", request.url));
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/login", "/register"],
+  matcher: ["/app/:path*", "/admin/:path*", "/login", "/register"],
 };

@@ -17,6 +17,8 @@ export const loginSchema = z.object({
 
 export type LoginInput = z.infer<typeof loginSchema>;
 
+export type Role = "client" | "admin";
+
 // Mirrors the backend UserProfile response.
 export type UserProfile = {
   id: number;
@@ -24,4 +26,7 @@ export type UserProfile = {
   full_name: string | null;
   is_active: boolean;
   is_verified: boolean;
+  role: Role;
 };
+
+export const homeFor = (role: Role): string => (role === "admin" ? "/admin" : "/app");

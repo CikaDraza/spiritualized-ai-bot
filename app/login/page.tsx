@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ArrowLeft, Mail, Eye, EyeOff } from "lucide-react";
 import { toast } from "sonner";
 
-import { loginSchema } from "@/types/auth";
+import { homeFor, loginSchema, type Role } from "@/types/auth";
 
 export default function SignInPage() {
   const router = useRouter();
@@ -38,8 +38,9 @@ export default function SignInPage() {
         body: JSON.stringify(parsed.data),
       });
       if (res.ok) {
+        const data = (await res.json().catch(() => ({}))) as { role?: Role };
         toast.success("Welcome back.");
-        router.push("/dashboard");
+        router.push(homeFor(data.role ?? "client"));
         router.refresh();
         return;
       }

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Home, CalendarDays, MessageCircle, User } from "lucide-react";
 
 const items = [
-  { icon: Home, href: "/dashboard", label: "Home" },
+  { icon: Home, href: "/app", label: "Home" },
   { icon: CalendarDays, href: "#", label: "Schedule" },
   { icon: MessageCircle, href: "#", label: "Chat" },
   { icon: User, href: "#", label: "Profile" },

@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ArrowLeft, User, Mail, Eye, EyeOff } from "lucide-react";
 import { toast } from "sonner";
 
-import { registerSchema } from "@/types/auth";
+import { homeFor, registerSchema, type Role } from "@/types/auth";
 
 type FieldErrors = { name?: string; email?: string; password?: string };
 
@@ -48,10 +48,13 @@ export default function SignUpPage() {
         headers: { "content-type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const data = (await res.json().catch(() => ({}))) as { detail?: string };
+      const data = (await res.json().catch(() => ({}))) as {
+        detail?: string;
+        role?: Role;
+      };
       if (res.ok) {
         toast.success("Account created. Check your email to verify your account.");
-        router.push("/dashboard");
+        router.push(homeFor(data.role ?? "client"));
         router.refresh();
         return;
       }
