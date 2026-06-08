@@ -1,7 +1,11 @@
 import type { NextResponse } from "next/server";
 
-// Server-side only: the BFF route handlers talk to FastAPI here. Never exposed to the browser.
-export const BACKEND_URL = process.env.BACKEND_URL ?? "http://127.0.0.1:8000";
+// The BFF route handlers (server-side) talk to FastAPI here. Prefer BACKEND_URL (server-only);
+// fall back to NEXT_PUBLIC_API_URL so prod works with the env var Vercel already has set.
+export const BACKEND_URL =
+  process.env.BACKEND_URL ??
+  process.env.NEXT_PUBLIC_API_URL ??
+  "http://127.0.0.1:8000";
 
 /**
  * Relay the backend's Set-Cookie headers onto our own response so the (httpOnly) auth cookies
