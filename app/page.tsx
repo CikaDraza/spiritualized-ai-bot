@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PlayCircle, LayoutGrid, Users, ArrowRight } from "lucide-react";
 import RobotMascot from "@/components/RobotMascot";
+import Image from "next/image";
 
 const trio = [PlayCircle, LayoutGrid, Users];
 
@@ -24,7 +25,14 @@ export default function LandingPage() {
       <div className="robot-stage flex-1">
         <div className="blob-bg" />
         <div className="blob-bg2" />
-        <RobotMascot />
+        <Image
+          src="/little_robot_logo.jpg"
+          alt="Robot Mascot"
+          width={720}
+          height={720}
+          className="relative z-10 w-[360px] h-[360px] opacity-0 md:w-[480px] md:h-[480px]"
+        />
+        {/* <RobotMascot /> */}
       </div>
 
       {/* three circular icon buttons */}
@@ -49,7 +57,8 @@ export default function LandingPage() {
           Your Lessons
         </h1>
         <p className="max-w-[260px] font-body text-[13.5px] leading-[1.55] text-muted2">
-          AI tutor te vodi, personalizuje lekcije i prati napredak — voice ili text.
+          AI tutor te vodi, personalizuje lekcije i prati napredak — voice ili
+          text.
         </p>
       </div>
 

@@ -16,6 +16,7 @@ import {
   type ScenarioType,
   type Space,
 } from "@/types/space";
+import { resendVerification } from "@/lib/verification";
 
 function Group({ label, children }: { label: string; children: React.ReactNode }) {
   return (
@@ -88,7 +89,14 @@ export default function SpacesView({ spaces }: { spaces: Space[] }) {
         return;
       }
       if (res.status === 403) {
-        toast.error("Please verify your email before using the tutor.");
+        toast.error("Please verify your email first.", {
+          action: {
+            label: "Send verification link",
+            onClick: () => {
+              void resendVerification();
+            },
+          },
+        });
         return;
       }
       toast.error("Could not create the space. Please try again.");

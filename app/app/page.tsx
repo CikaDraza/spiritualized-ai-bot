@@ -4,6 +4,7 @@ import { Bell } from "lucide-react";
 
 import BottomNav from "@/components/BottomNav";
 import LogoutButton from "@/components/LogoutButton";
+import ResendVerificationButton from "@/components/ResendVerificationButton";
 import SpacesView from "@/components/SpacesView";
 import { BACKEND_URL } from "@/lib/backend";
 import type { UserProfile } from "@/types/auth";
@@ -81,6 +82,9 @@ export default async function LearningSpacesPage() {
         {!profile.is_verified && (
           <div className="mt-3 rounded-tile bg-primary-50 px-4 py-3 font-body text-[12.5px] text-primary-deep">
             Verify your email to start creating learning spaces.
+            <div>
+              <ResendVerificationButton />
+            </div>
           </div>
         )}
 
