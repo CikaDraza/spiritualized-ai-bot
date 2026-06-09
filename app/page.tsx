@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { PlayCircle, LayoutGrid, Users, ArrowRight } from "lucide-react";
 import RobotMascot from "@/components/RobotMascot";
-import Image from "next/image";
 
 const trio = [PlayCircle, LayoutGrid, Users];
 
@@ -22,17 +21,10 @@ export default function LandingPage() {
       </div>
 
       {/* robot mascot */}
-      <div className="robot-stage flex-1">
+      <div className="relative robot-stage flex-1">
         <div className="blob-bg" />
         <div className="blob-bg2" />
-        <Image
-          src="/little_robot_logo.jpg"
-          alt="Robot Mascot"
-          width={720}
-          height={720}
-          className="relative z-10 w-[360px] h-[360px] opacity-0 md:w-[480px] md:h-[480px]"
-        />
-        {/* <RobotMascot /> */}
+        <RobotMascot />
       </div>
 
       {/* three circular icon buttons */}
