@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Plus } from "lucide-react";
 import { toast } from "sonner";
@@ -17,6 +16,7 @@ import {
   type Space,
 } from "@/types/space";
 import { resendVerification } from "@/lib/verification";
+import SlotCard from "@/components/SlotCard";
 
 function Group({ label, children }: { label: string; children: React.ReactNode }) {
   return (
@@ -110,13 +110,7 @@ export default function SpacesView({ spaces }: { spaces: Space[] }) {
   return (
     <div className="mt-[18px] flex flex-col gap-3">
       {spaces.map((s) => (
-        <Link
-          key={s.id}
-          href={`/app/spaces/${s.id}`}
-          className="rounded-card bg-card px-4 py-[18px] text-[15px] font-extrabold"
-        >
-          {s.title}
-        </Link>
+        <SlotCard key={s.id} space={s} />
       ))}
 
       {Array.from({ length: emptyCount }).map((_, i) => (

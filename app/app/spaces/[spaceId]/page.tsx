@@ -3,11 +3,12 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
-import DeleteSpaceButton from "@/components/DeleteSpaceButton";
+import ClassroomMenu from "@/components/ClassroomMenu";
 import { BACKEND_URL } from "@/lib/backend";
+import { classroomTitle } from "@/lib/scenario";
 import type { Space } from "@/types/space";
 
-export default async function SpaceDetailPage({
+export default async function ClassroomPage({
   params,
 }: {
   params: Promise<{ spaceId: string }>;
@@ -30,17 +31,18 @@ export default async function SpaceDetailPage({
   const space = (await res.json()) as Space;
 
   return (
-    <main className="flex flex-1 flex-col px-[22px] pt-2">
-      <Link href="/app" aria-label="Back" className="pt-2 text-ink">
-        <ArrowLeft size={22} />
-      </Link>
-
-      <h1 className="mt-4 text-[22px] font-extrabold">{space.title}</h1>
-      <p className="mt-2 font-body text-[13.5px] text-muted2">Classroom coming soon.</p>
-
-      <div className="mt-auto pb-6">
-        <DeleteSpaceButton spaceId={space.id} />
+    <main className="flex flex-1 flex-col px-[22px] pb-8 pt-2">
+      <div className="flex items-center gap-3 pt-1">
+        <Link href="/app" aria-label="Back" className="text-ink">
+          <ArrowLeft size={22} />
+        </Link>
+        <div>
+          <div className="text-[19px] font-extrabold tracking-[-0.01em]">Classroom</div>
+          <h2 className="font-body text-[16px] text-muted2">{classroomTitle(space)}</h2>
+        </div>
       </div>
+
+      <ClassroomMenu />
     </main>
   );
 }
