@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   ArrowUpRight,
   BookOpen,
@@ -16,10 +17,12 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
-// Two-per-row classroom activities (design §7.7). Pages don't exist yet → "coming soon" toast;
-// swap onClick for a Link/href once each activity screen is built.
-const ITEMS: { Icon: LucideIcon; label: string }[] = [
-  { Icon: MessagesSquare, label: "Conversation" },
+// Two-per-row classroom activities (design §7.7). Items with `href` navigate (relative to the
+// space); the rest are placeholders → "coming soon" toast until their screen is built.
+type Item = { Icon: LucideIcon; label: string; href?: string };
+
+const ITEMS: Item[] = [
+  { Icon: MessagesSquare, label: "Conversation", href: "conversation" },
   { Icon: Mic, label: "Speaking" },
   { Icon: Headphones, label: "Listening" },
   { Icon: BookOpen, label: "Reading" },
@@ -29,30 +32,41 @@ const ITEMS: { Icon: LucideIcon; label: string }[] = [
   { Icon: UserRound, label: "Profile" },
 ];
 
-export default function ClassroomMenu() {
+const TILE = "flex min-h-[104px] flex-col gap-3.5 rounded-[18px] bg-card p-4 text-left";
+
+function TileInner({ Icon, label }: { Icon: LucideIcon; label: string }) {
+  return (
+    <>
+      <div className="flex items-center justify-between">
+        <div className="grid h-[46px] w-[46px] shrink-0 place-items-center rounded-tile bg-white text-primary shadow-tile">
+          <Icon size={23} />
+        </div>
+        <div className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white text-ink">
+          <ArrowUpRight size={16} />
+        </div>
+      </div>
+      <div className="text-[15.5px] font-extrabold">{label}</div>
+    </>
+  );
+}
+
+export default function ClassroomMenu({ spaceId }: { spaceId: number }) {
   const soon = (label: string) => toast(`${label} — coming soon`);
 
   return (
     <>
       <div className="mt-[18px] grid grid-cols-2 gap-3.5">
-        {ITEMS.map(({ Icon, label }) => (
-          <button
-            key={label}
-            type="button"
-            onClick={() => soon(label)}
-            className="flex min-h-[104px] flex-col gap-3.5 rounded-[18px] bg-card p-4 text-left"
-          >
-            <div className="flex items-center justify-between">
-              <div className="grid h-[46px] w-[46px] shrink-0 place-items-center rounded-tile bg-white text-primary shadow-tile">
-                <Icon size={23} />
-              </div>
-              <div className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white text-ink">
-                <ArrowUpRight size={16} />
-              </div>
-            </div>
-            <div className="text-[15.5px] font-extrabold">{label}</div>
-          </button>
-        ))}
+        {ITEMS.map(({ Icon, label, href }) =>
+          href ? (
+            <Link key={label} href={`/app/spaces/${spaceId}/${href}`} className={TILE}>
+              <TileInner Icon={Icon} label={label} />
+            </Link>
+          ) : (
+            <button key={label} type="button" onClick={() => soon(label)} className={TILE}>
+              <TileInner Icon={Icon} label={label} />
+            </button>
+          ),
+        )}
       </div>
 
       <button

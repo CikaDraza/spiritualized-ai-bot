@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PlayCircle, LayoutGrid, Users, ArrowRight } from "lucide-react";
 import RobotMascot from "@/components/RobotMascot";
+import Image from "next/image";
 
 const trio = [PlayCircle, LayoutGrid, Users];
 
@@ -9,10 +10,18 @@ export default function LandingPage() {
     <main className="flex flex-1 flex-col px-[22px] pb-6 pt-4">
       {/* mini header */}
       <div className="flex items-center justify-between px-0.5 pt-1">
-        <div className="leading-none">
-          <div className="text-[18px] font-extrabold">Spiritualized</div>
-          <div className="font-body text-[11px] font-semibold text-primary">
-            Language Tutor
+        <div className="leading-none flex items-center gap-2.5">
+          <Image
+            src="/logo-little-robot-tutor.png"
+            alt="Spiritualized Logo"
+            width={32}
+            height={32}
+          />
+          <div>
+            <div className="text-[18px] font-extrabold">Spiritualized</div>
+            <div className="font-body text-[11px] font-semibold text-primary">
+              Language Tutor
+            </div>
           </div>
         </div>
         <span className="rounded-pill bg-card px-3 py-1.5 font-body text-[12px] font-semibold text-muted2">

@@ -42,7 +42,7 @@ export default async function ClassroomPage({
         </div>
       </div>
 
-      <ClassroomMenu />
+      <ClassroomMenu spaceId={space.id} />
     </main>
   );
 }
