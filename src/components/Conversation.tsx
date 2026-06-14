@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowLeft, SendHorizontal } from "lucide-react";
 import { toast } from "sonner";
 
+import SessionSummaryDrawer from "@/components/SessionSummaryDrawer";
+import TutorMessage from "@/components/TutorMessage";
 import { personaLabel, scenarioLabel } from "@/lib/scenario";
 import type { Space } from "@/types/space";
 import type { ChatMsg, TutorTurnResponse } from "@/types/tutor";
@@ -22,6 +24,20 @@ export default function Conversation({ space }: { space: Space }) {
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
   const [sessionId, setSessionId] = useState<string | undefined>(undefined);
+  const [showSummary, setShowSummary] = useState(false);
+
+  const router = useRouter();
+  const [startedAt] = useState<number>(() => Date.now());
+  const classroomHref = `/app/spaces/${space.id}`;
+
+  const allMistakes = messages.flatMap((m) => m.turn?.mistakes ?? []);
+  const userCount = messages.filter((m) => m.role === "user").length;
+
+  // Back / Finish: show the session summary on exit (only if the learner actually talked).
+  function handleExit() {
+    if (userCount > 0) setShowSummary(true);
+    else router.push(classroomHref);
+  }
 
   const endRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
@@ -54,7 +70,10 @@ export default function Conversation({ space }: { space: Space }) {
       }
       const data = (await res.json()) as TutorTurnResponse;
       setSessionId(data.session_id);
-      setMessages((m) => [...m, { role: "assistant", content: data.assistant }]);
+      setMessages((m) => [
+        ...m,
+        { role: "assistant", content: data.ai_response, turn: data },
+      ]);
     } catch {
       toast.error("Network error. Please try again.");
     } finally {
@@ -71,9 +90,9 @@ export default function Conversation({ space }: { space: Space }) {
     <main className="flex flex-1 flex-col px-[22px] pt-2">
       {/* header */}
       <div className="flex items-center gap-3 pt-1">
-        <Link href={`/app/spaces/${space.id}`} aria-label="Back" className="text-ink">
+        <button type="button" onClick={handleExit} aria-label="Back" className="text-ink">
           <ArrowLeft size={22} />
-        </Link>
+        </button>
         <div
           className="grid h-10 w-10 place-items-center rounded-full text-[15px] font-extrabold text-white"
           style={{ backgroundImage: "linear-gradient(135deg, #d9c8ff, #b79bff)" }}
@@ -84,6 +103,13 @@ export default function Conversation({ space }: { space: Space }) {
           <div className="text-[14px] font-extrabold">{tutor}</div>
           <div className="font-body text-[11px] text-success">● Online</div>
         </div>
+        <button
+          type="button"
+          onClick={handleExit}
+          className="ml-auto rounded-full bg-card px-4 py-2 text-[12px] font-bold text-primary"
+        >
+          Finish
+        </button>
       </div>
 
       {/* mode toggle — Text is live; Voice is coming soon */}
@@ -104,12 +130,7 @@ export default function Conversation({ space }: { space: Space }) {
       <div className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto py-3.5">
         {messages.map((m, i) =>
           m.role === "assistant" ? (
-            <div
-              key={i}
-              className="max-w-[78%] self-start rounded-[18px] rounded-bl-[6px] bg-card px-[15px] py-3 font-body text-[13.5px] leading-[1.5] text-ink"
-            >
-              {m.content}
-            </div>
+            <TutorMessage key={i} m={m} />
           ) : (
             <div
               key={i}
@@ -144,6 +165,16 @@ export default function Conversation({ space }: { space: Space }) {
           <SendHorizontal size={18} />
         </button>
       </form>
+
+      {showSummary && (
+        <SessionSummaryDrawer
+          space={space}
+          mistakes={allMistakes}
+          messageCount={messages.length}
+          startedAt={startedAt}
+          onClose={() => router.push(classroomHref)}
+        />
+      )}
     </main>
   );
 }
