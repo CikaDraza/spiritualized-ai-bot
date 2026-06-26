@@ -1,8 +1,10 @@
+import { authedFetch } from "@/lib/apiClient";
+
 export async function fetcher<T>(
   url: string,
   options: RequestInit = {},
 ): Promise<T> {
-  const response = await fetch(url, {
+  const response = await authedFetch(url, {
     ...options,
     headers: {
       "Content-Type": "application/json",
