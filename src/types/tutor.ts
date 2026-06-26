@@ -3,7 +3,8 @@ export type ChatRole = "user" | "assistant";
 export type Severity = "minor" | "moderate" | "major";
 
 export type Mistake = {
-  category: string;
+  subtype: string; // granular LLM label (articles, prepositions, …); pillar is derived backend-side
+  category: string; // one of the four linguistic pillars, derived from subtype
   original: string;
   correction: string;
   explanation: string; // Serbian

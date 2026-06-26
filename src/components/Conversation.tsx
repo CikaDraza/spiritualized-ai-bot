@@ -7,7 +7,10 @@ import { toast } from "sonner";
 
 import SessionSummaryDrawer from "@/components/SessionSummaryDrawer";
 import TutorMessage from "@/components/TutorMessage";
+import { useSessionComplete } from "@/hooks/useSessionComplete";
+import { authedFetch } from "@/lib/apiClient";
 import { personaLabel, scenarioLabel } from "@/lib/scenario";
+import type { SessionSummary } from "@/types/session";
 import type { Space } from "@/types/space";
 import type { ChatMsg, TutorTurnResponse } from "@/types/tutor";
 
@@ -24,19 +27,32 @@ export default function Conversation({ space }: { space: Space }) {
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
   const [sessionId, setSessionId] = useState<string | undefined>(undefined);
-  const [showSummary, setShowSummary] = useState(false);
+  const [summary, setSummary] = useState<SessionSummary | null>(null);
 
   const router = useRouter();
-  const [startedAt] = useState<number>(() => Date.now());
   const classroomHref = `/app/spaces/${space.id}`;
+  const sessionComplete = useSessionComplete();
 
-  const allMistakes = messages.flatMap((m) => m.turn?.mistakes ?? []);
   const userCount = messages.filter((m) => m.role === "user").length;
 
-  // Back / Finish: show the session summary on exit (only if the learner actually talked).
+  // Back / Finish: roll up the session on the backend (summary + profile update), then show the
+  // summary. If the learner never talked (or there's no session yet), just leave.
   function handleExit() {
-    if (userCount > 0) setShowSummary(true);
-    else router.push(classroomHref);
+    if (sessionComplete.isPending) return;
+    if (userCount > 0 && sessionId) {
+      sessionComplete.mutate(
+        { session_id: sessionId, scenario_id: space.id },
+        {
+          onSuccess: (data) => setSummary(data),
+          onError: () => {
+            toast.error("Couldn't load your session summary.");
+            router.push(classroomHref);
+          },
+        },
+      );
+    } else {
+      router.push(classroomHref);
+    }
   }
 
   const endRef = useRef<HTMLDivElement | null>(null);
@@ -53,7 +69,7 @@ export default function Conversation({ space }: { space: Space }) {
     setInput("");
     setSending(true);
     try {
-      const res = await fetch("/api/tutor/turn", {
+      const res = await authedFetch("/api/tutor/turn", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
@@ -64,6 +80,11 @@ export default function Conversation({ space }: { space: Space }) {
           session_id: sessionId,
         }),
       });
+      if (res.status === 401) {
+        toast.error("Your session expired. Please sign in again.");
+        router.push("/login");
+        return;
+      }
       if (!res.ok) {
         toast.error("Couldn't reach the tutor. Please try again.");
         return;
@@ -90,7 +111,13 @@ export default function Conversation({ space }: { space: Space }) {
     <main className="flex flex-1 flex-col px-[22px] pt-2">
       {/* header */}
       <div className="flex items-center gap-3 pt-1">
-        <button type="button" onClick={handleExit} aria-label="Back" className="text-ink">
+        <button
+          type="button"
+          onClick={handleExit}
+          disabled={sessionComplete.isPending}
+          aria-label="Back"
+          className="text-ink disabled:opacity-50"
+        >
           <ArrowLeft size={22} />
         </button>
         <div
@@ -106,9 +133,10 @@ export default function Conversation({ space }: { space: Space }) {
         <button
           type="button"
           onClick={handleExit}
-          className="ml-auto rounded-full bg-card px-4 py-2 text-[12px] font-bold text-primary"
+          disabled={sessionComplete.isPending}
+          className="ml-auto rounded-full bg-card px-4 py-2 text-[12px] font-bold text-primary disabled:opacity-50"
         >
-          Finish
+          {sessionComplete.isPending ? "Finishing…" : "Finish"}
         </button>
       </div>
 
@@ -166,14 +194,8 @@ export default function Conversation({ space }: { space: Space }) {
         </button>
       </form>
 
-      {showSummary && (
-        <SessionSummaryDrawer
-          space={space}
-          mistakes={allMistakes}
-          messageCount={messages.length}
-          startedAt={startedAt}
-          onClose={() => router.push(classroomHref)}
-        />
+      {summary && (
+        <SessionSummaryDrawer summary={summary} onClose={() => router.push(classroomHref)} />
       )}
     </main>
   );

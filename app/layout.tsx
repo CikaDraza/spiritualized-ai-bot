@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Overpass, Inter } from "next/font/google";
 import { Toaster } from "sonner";
+import QueryProvider from "@/components/QueryProvider";
 import "./globals.css";
 
 const overpass = Overpass({
@@ -31,7 +32,7 @@ export default function RootLayout({
       {/* Mobile-first: a white "app" column centred on a neutral page (desktop refined later). */}
       <body className="min-h-dvh bg-[#E9EBF2]">
         <div className="relative mx-auto flex min-h-dvh w-full max-w-[480px] flex-col bg-white">
-          {children}
+          <QueryProvider>{children}</QueryProvider>
         </div>
         <Toaster richColors position="top-center" />
       </body>

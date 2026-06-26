@@ -3,63 +3,25 @@
 import { useState } from "react";
 import { Check } from "lucide-react";
 
-import { scenarioLabel } from "@/lib/scenario";
-import type { Space } from "@/types/space";
-import type { Mistake, Severity } from "@/types/tutor";
+import type { SessionSummary } from "@/types/session";
 
-const LEVELS = ["A1", "A2", "B1", "B2", "C1"];
+// Pillars in display order; scores come from the backend (no client computation).
 const PILLARS = [
   { key: "semantics", label: "Semantics" },
   { key: "syntax", label: "Syntax" },
-  { key: "orthography", label: "Orthography" },
+  { key: "orthography", label: "Spelling" },
   { key: "living_communication", label: "Communication" },
 ] as const;
-const PENALTY: Record<Severity, number> = { minor: 3, moderate: 7, major: 12 };
-
-function levelBelow(level: string): string {
-  const i = LEVELS.indexOf(level);
-  return LEVELS[Math.max(0, i - 1)] ?? level;
-}
 
 type Props = {
-  space: Space;
-  mistakes: Mistake[];
-  messageCount: number;
-  startedAt: number;
+  summary: SessionSummary;
   onClose: () => void;
 };
 
-export default function SessionSummaryDrawer({
-  space,
-  mistakes,
-  messageCount,
-  startedAt,
-  onClose,
-}: Props) {
+export default function SessionSummaryDrawer({ summary, onClose }: Props) {
   const [screen, setScreen] = useState<1 | 2>(1);
 
-  const durationMin = Math.max(1, Math.round((Date.now() - startedAt) / 60000));
-
-  // Per-pillar score: 100 minus severity-weighted penalties, clamped (mock heuristic for PR11).
-  const scores = PILLARS.map((p) => {
-    const penalty = mistakes
-      .filter((m) => m.category === p.key)
-      .reduce((sum, m) => sum + (PENALTY[m.severity] ?? PENALTY.moderate), 0);
-    return { ...p, score: Math.max(40, 100 - penalty) };
-  });
-
-  const ranked = [...scores].sort((a, b) => b.score - a.score);
-  const strong = ranked.slice(0, 2).filter((s) => s.score >= 80);
-  const weak = ranked.filter((s) => s.score < 90).slice(-2);
-
-  const counts = PILLARS.map((p) => ({
-    label: p.label,
-    n: mistakes.filter((m) => m.category === p.key).length,
-  }));
-  const mostCommon = [...counts].sort((a, b) => b.n - a.n)[0];
-
-  const target = space.level;
-  const current = levelBelow(target);
+  const scores = PILLARS.map((p) => ({ ...p, score: summary.pillar_scores[p.key] }));
 
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center">
@@ -76,8 +38,8 @@ export default function SessionSummaryDrawer({
             </div>
             <h2 className="mt-3 text-center text-[22px] font-extrabold">Session Complete</h2>
             <p className="mt-1 text-center font-body text-[13px] text-muted2">
-              Current level <b className="text-ink">{current}</b> · Target{" "}
-              <b className="text-ink">{target}</b>
+              Current level <b className="text-ink">{summary.current_level}</b> · Target{" "}
+              <b className="text-ink">{summary.target_level}</b>
             </p>
 
             <div className="mt-5 flex flex-col gap-3">
@@ -111,9 +73,9 @@ export default function SessionSummaryDrawer({
 
             <div className="mt-4 grid grid-cols-3 gap-2.5">
               {[
-                { k: "Duration", v: `${durationMin} min` },
-                { k: "Messages", v: String(messageCount) },
-                { k: "Level est.", v: target },
+                { k: "Duration", v: `${summary.duration_min} min` },
+                { k: "Messages", v: String(summary.message_count) },
+                { k: "Level est.", v: summary.target_level },
               ].map((s) => (
                 <div key={s.k} className="rounded-tile bg-card px-3 py-3 text-center">
                   <div className="text-[18px] font-extrabold">{s.v}</div>
@@ -123,10 +85,10 @@ export default function SessionSummaryDrawer({
             </div>
 
             <Section title="Strong areas">
-              {strong.length ? (
-                strong.map((s) => (
-                  <Row key={s.key} ok>
-                    {s.label}
+              {summary.strong_areas.length ? (
+                summary.strong_areas.map((label) => (
+                  <Row key={label} ok>
+                    {label}
                   </Row>
                 ))
               ) : (
@@ -135,8 +97,8 @@ export default function SessionSummaryDrawer({
             </Section>
 
             <Section title="Needs attention">
-              {weak.length ? (
-                weak.map((s) => <Row key={s.key}>{s.label}</Row>)
+              {summary.weak_areas.length ? (
+                summary.weak_areas.map((label) => <Row key={label}>{label}</Row>)
               ) : (
                 <Row ok>Nothing major — great work!</Row>
               )}
@@ -144,14 +106,11 @@ export default function SessionSummaryDrawer({
 
             <div className="mt-3 flex justify-between rounded-tile bg-card px-4 py-3 font-body text-[13px]">
               <span className="text-muted2">Most common correction</span>
-              <span className="font-bold text-ink">
-                {mostCommon && mostCommon.n > 0 ? mostCommon.label : "—"}
-              </span>
+              <span className="font-bold text-ink">{summary.most_common_correction}</span>
             </div>
 
             <p className="mt-3 font-body text-[12.5px] text-muted2">
-              <b className="text-ink">Recommendation:</b> Keep practicing{" "}
-              {scenarioLabel(space.scenario_type)}.
+              <b className="text-ink">Recommendation:</b> {summary.recommendation}
             </p>
 
             <button
