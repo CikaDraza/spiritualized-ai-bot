@@ -25,8 +25,11 @@ export function useEmailVerification(): VerificationStatus {
     ran.current = true;
 
     if (!token) {
-      setStatus("failed");
-      toast.error(FAIL_MESSAGE);
+      async function handleFailedVerification() {
+        setStatus("failed");
+        toast.error(FAIL_MESSAGE);
+      }
+      handleFailedVerification();
       return;
     }
 
