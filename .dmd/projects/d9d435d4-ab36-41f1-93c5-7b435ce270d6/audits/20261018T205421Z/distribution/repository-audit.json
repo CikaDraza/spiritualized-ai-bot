@@ -1,0 +1,1441 @@
+{
+  "schema": "dmd.repository-audit.v2",
+  "sourceContext": {
+    "schema": "dmd.project-audit-context.v1",
+    "revision": "ed1dcbdb798ae68bc9052646820c168b809306c404ec8fd0738ce02dd3a42483",
+    "path": "../../contexts/ed1dcbdb798ae68bc9052646820c168b809306c404ec8fd0738ce02dd3a42483.json",
+    "sha256": "161b984f8fd7004d060ed1ca43ac9efe105be442bfdd68769aab84132dc247bf"
+  },
+  "repositoryTarget": {
+    "schema": "dmd.repository-target.v1",
+    "repository": "CikaDraza/spiritualized-ai-bot",
+    "repositoryUrl": "https://github.com/CikaDraza/spiritualized-ai-bot",
+    "bindingId": "b6cc85bf-a9a7-48ee-a076-3721c3c9c4a4",
+    "bindingVersion": 1,
+    "repositoryId": "1261295910"
+  },
+  "subject": {
+    "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6"
+  },
+  "scope": {
+    "all": true,
+    "milestoneIds": [
+      "ce94df82-1953-406b-a924-9bab25367242",
+      "4154e590-1c77-49f2-bd45-44236cffb8dd",
+      "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+      "85155ea4-8760-4c22-ac96-099345abf4ed",
+      "e67e32c3-e741-47df-91d3-235cd9e69907",
+      "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+      "723b32a8-9bdf-48bf-b611-55ffe04fefbf",
+      "3bd1fec3-756d-46fe-9c34-2f882fd8383a",
+      "f62df4fe-ec0d-4673-966f-ef4bd90485f9"
+    ]
+  },
+  "trust": "engineer_report_requires_dmd_validation",
+  "observedAt": "2026-10-18T20:54:21Z",
+  "coverage": {
+    "expectedRepositoryUrl": "https://github.com/CikaDraza/spiritualized-ai-bot",
+    "repositoryIdentity": {
+      "status": "matched",
+      "basis": "explicit DMD target, sanitized origin, GitHub API full_name/url/numeric id",
+      "repositoryId": "1261295910",
+      "dmdBinding": "access_verified_contents_not_audited"
+    },
+    "local": {
+      "status": "checked",
+      "current": {
+        "branch": "pr11-structured-conversation",
+        "sha": "fc7b558af473cf3da6465520e4b65cfa80d50ab9",
+        "treeSha": "1e1be56d964d0c266cabfaef55b771350c3e72f7"
+      },
+      "stagedChanges": [],
+      "preAuditUnstagedPaths": [
+        {
+          "path": "package.json",
+          "artifactSha256": "405917a82fc979d1d288a64cad4e482effaf9fed733f5f6fd0ddc1a3597e14f5"
+        }
+      ],
+      "preAuditUntrackedPaths": [
+        {
+          "path": "tests/auth-schemas.test.mjs",
+          "artifactSha256": "6e8837dbe1a344ba7d74de9d2e0949105810edbb74f5a9c4bee2c013ab692582"
+        }
+      ],
+      "secretFreeHarnessPatchSha256": "ee605ccbc47451efc457906ece0fc73c784485f12ea318ee076020033e393aa7",
+      "harnessHashMethod": "SHA-256(package.json binary diff against HEAD, NUL byte, then tests/auth-schemas.test.mjs bytes)",
+      "localBranches": [
+        {
+          "branch": "fix/email-verification-effect",
+          "sha": "58c221df87781689faef554d9f858eb14fc6b4aa"
+        },
+        {
+          "branch": "main",
+          "sha": "d177d4bf744e8d23f8fc696aa9d75824fdcf20b0"
+        },
+        {
+          "branch": "pr10-classroom-conversation-text",
+          "sha": "b8704a4f559aa52b93fab92639f90a1530f5bcc5"
+        },
+        {
+          "branch": "pr11-structured-conversation",
+          "sha": "fc7b558af473cf3da6465520e4b65cfa80d50ab9"
+        }
+      ],
+      "worktrees": [
+        {
+          "path": ".",
+          "branch": "pr11-structured-conversation",
+          "sha": "fc7b558af473cf3da6465520e4b65cfa80d50ab9",
+          "status": "pre-existing local harness changes; no staged changes"
+        },
+        {
+          "path": "external local worktree",
+          "branch": "fix/email-verification-effect",
+          "sha": "58c221df87781689faef554d9f858eb14fc6b4aa",
+          "treeSha": "1e1be56d964d0c266cabfaef55b771350c3e72f7",
+          "status": "clean; inspected read-only"
+        }
+      ],
+      "auditGeneratedPaths": [
+        ".dmd/README.md",
+        ".dmd/projects/d9d435d4-ab36-41f1-93c5-7b435ce270d6/contexts/ed1dcbdb798ae68bc9052646820c168b809306c404ec8fd0738ce02dd3a42483.json",
+        "dmd-docs/"
+      ]
+    },
+    "remote": {
+      "status": "checked",
+      "access": "origin read access; GitHub API read-only access",
+      "liveHeadsObservedAt": "2026-10-18T20:54:21Z",
+      "fetch": {
+        "status": "success",
+        "refspec": "+refs/heads/*:refs/remotes/origin/*",
+        "startedAt": "2026-10-18T20:54:20Z",
+        "completedAt": "2026-10-18T20:54:21Z",
+        "pruned": false
+      },
+      "liveHeads": [
+        {
+          "ref": "refs/heads/fix/email-verification-effect",
+          "sha": "58c221df87781689faef554d9f858eb14fc6b4aa"
+        },
+        {
+          "ref": "refs/heads/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3"
+        },
+        {
+          "ref": "refs/heads/pr11-structured-conversation",
+          "sha": "fc7b558af473cf3da6465520e4b65cfa80d50ab9"
+        }
+      ],
+      "staleLocalTrackingRefsNotPruned": [
+        {
+          "ref": "refs/remotes/origin/learning-spaces-ui",
+          "sha": "9acdcd767c63e3c16e82a1cb197c4796a4d09967",
+          "note": "not advertised by current ls-remote; ancestor of remote main"
+        },
+        {
+          "ref": "refs/remotes/origin/pr10-classroom-conversation-text",
+          "sha": "b8704a4f559aa52b93fab92639f90a1530f5bcc5",
+          "note": "not advertised by current ls-remote; ancestor of remote main"
+        }
+      ],
+      "unavailableRefs": [
+        "No live or local staging or qa branch was observed.",
+        "DMD policy documents link to internal canonical references not included in this portable packet."
+      ]
+    },
+    "main": {
+      "branch": "main",
+      "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+      "status": "checked",
+      "treeSha": "1e1be56d964d0c266cabfaef55b771350c3e72f7",
+      "localMainSha": "d177d4bf744e8d23f8fc696aa9d75824fdcf20b0",
+      "localMainStatus": "behind 10 commits",
+      "codeTreeComparison": "checked-out feature SHA and fetched remote main have identical tree SHA"
+    },
+    "pullRequests": [
+      {
+        "number": 8,
+        "url": "https://github.com/CikaDraza/spiritualized-ai-bot/pull/8",
+        "state": "MERGED",
+        "mergedAt": "2026-10-16T21:23:37Z",
+        "mergeCommit": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+        "check": "Vercel Preview Comments SUCCESS; preview only"
+      },
+      {
+        "number": 7,
+        "url": "https://github.com/CikaDraza/spiritualized-ai-bot/pull/7",
+        "state": "MERGED",
+        "mergedAt": "2026-06-26T22:20:34Z",
+        "mergeCommit": "5430a6e9f3b694b12b65c1bcdfd585cd9084b0dc",
+        "check": "Vercel Preview Comments SUCCESS; preview only"
+      }
+    ],
+    "ci": {
+      "githubActionsRuns": 0,
+      "mainCommitCheckRuns": 0,
+      "status": "no GitHub Actions runs or check-runs were returned for the audited main SHA"
+    },
+    "gaps": [
+      "The frontend DMD binding was present in the supplied context and its GitHub repository ID was confirmed, but DMD task acceptance and repository binding are not independently authenticated by this audit.",
+      "No live staging or qa branches were advertised.",
+      "No production Vercel/runtime, backend database, email, Redis, or paid-provider checks were run.",
+      "The package test script and regression file were pre-existing uncommitted local harness changes and are absent from the committed HEAD package.json.",
+      "The source context supplies no acceptance criteria for any of its 38 tasks and approvedScope.status is missing_baseline."
+    ]
+  },
+  "tasks": [
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "ce94df82-1953-406b-a924-9bab25367242",
+        "taskId": "9f23d45c-2f41-45d5-a99a-bc96d5243700",
+        "engineeringId": null
+      },
+      "title": "Creating backend and server on Railway.",
+      "dmdPlanningState": "completed",
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "not_observed",
+      "locations": [],
+      "evidenceRefs": [],
+      "remainingWork": [],
+      "blockers": [
+        "This is outside the selected frontend repository; absence here is not evidence of project-wide absence."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "ce94df82-1953-406b-a924-9bab25367242",
+        "taskId": "9b3961df-c663-4bd4-8969-7a07ac2bca2e",
+        "engineeringId": null
+      },
+      "title": "Creating frontend in NextJS and hosted on Vercel",
+      "dmdPlanningState": "completed",
+      "implementation": "partial",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "app/layout.tsx",
+            "package.json",
+            "next.config.ts",
+            "proxy.ts"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "PR #7 merged; PR #8 main revision is 28389e024de2c20f7843f82f56e5d3c42cc0ced3."
+      ],
+      "remainingWork": [
+        "Verify the deployed production revision and runtime health with authorized production evidence."
+      ],
+      "blockers": [
+        "Vercel preview checks do not prove production deployment or runtime."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "21863775-f0bd-40f1-8b72-213dd6a17a76",
+        "engineeringId": null
+      },
+      "title": "Registration",
+      "dmdPlanningState": "completed",
+      "implementation": "partial",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "app/register/page.tsx",
+            "app/api/auth/register/route.ts",
+            "src/types/auth.ts"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Client form applies registerSchema; BFF relays the request to /auth/register."
+      ],
+      "remainingWork": [
+        "Add route-level request validation and exercise the integrated server behavior against an approved test environment."
+      ],
+      "blockers": [
+        "Backend persistence and email delivery are outside this repository audit."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "ac52bfc6-c799-4b51-8486-3f182b099bf6",
+        "engineeringId": null
+      },
+      "title": "Login",
+      "dmdPlanningState": "completed",
+      "implementation": "partial",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "app/login/page.tsx",
+            "app/api/auth/login/route.ts",
+            "src/types/auth.ts"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Client form applies loginSchema; BFF relays the request to /auth/login."
+      ],
+      "remainingWork": [
+        "Add route-level request validation and test integrated auth behavior against an approved test environment."
+      ],
+      "blockers": [
+        "Backend authentication behavior was not in the selected repository."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "3680c14f-032c-48b0-a5b4-b880353a5438",
+        "engineeringId": null
+      },
+      "title": "Email verification",
+      "dmdPlanningState": "completed",
+      "implementation": "implemented",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "src/hooks/useEmailVerification.ts",
+            "app/api/auth/verify/route.ts",
+            "app/verify/page.tsx"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "PR #8 merged to the audited main SHA."
+      ],
+      "remainingWork": [
+        "Add behavioral regression coverage for missing/expired tokens and verify the runtime email flow."
+      ],
+      "blockers": [
+        "No task-specific acceptance criteria or end-to-end email test was supplied."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "303311c2-b390-48e6-9ae4-8c0e107a120c",
+        "engineeringId": null
+      },
+      "title": "JWT access tokens",
+      "dmdPlanningState": "completed",
+      "implementation": "partial",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "src/lib/apiClient.ts",
+            "app/api/auth/login/route.ts",
+            "src/lib/backend.ts"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Frontend forwards first-party auth cookies and retries an authenticated request after refresh."
+      ],
+      "remainingWork": [
+        "Verify token issuance, validation, and expiry in the backend and an approved runtime environment."
+      ],
+      "blockers": [
+        "Token provider and signing behavior are outside this repository audit."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "fb2527dd-27de-4e4e-93af-d19526f4711d",
+        "engineeringId": null
+      },
+      "title": "Refresh token rotation",
+      "dmdPlanningState": "completed",
+      "implementation": "partial",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "src/lib/apiClient.ts",
+            "app/api/auth/refresh/route.ts",
+            "app/api/auth/logout/route.ts"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Frontend performs a single-flight refresh request and retries the original call once."
+      ],
+      "remainingWork": [
+        "Verify backend rotation/reuse behavior and concurrent refresh handling."
+      ],
+      "blockers": [
+        "Backend token-family persistence is outside this repository audit."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "af3c68b0-e9e3-4a88-b110-9e309445da22",
+        "engineeringId": null
+      },
+      "title": "Secure cookies",
+      "dmdPlanningState": "completed",
+      "implementation": "partial",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "src/lib/backend.ts",
+            "app/api/auth/login/route.ts",
+            "app/api/auth/refresh/route.ts"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "BFF relays backend Set-Cookie attributes and rewrites the refresh-cookie path."
+      ],
+      "remainingWork": [
+        "Verify production Secure, HttpOnly, SameSite, and domain attributes from approved runtime evidence."
+      ],
+      "blockers": [
+        "Production cookie behavior was not inspected."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "2515bd15-1e27-4c24-ae7b-b9f1cdaa79c9",
+        "engineeringId": null
+      },
+      "title": "Protected routes",
+      "dmdPlanningState": "completed",
+      "implementation": "implemented",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "proxy.ts",
+            "app/app/page.tsx",
+            "app/admin/layout.tsx"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Proxy checks session-cookie presence; server pages validate /auth/me; admin layout additionally enforces admin role."
+      ],
+      "remainingWork": [
+        "Add route-level behavior tests for unauthenticated, client, and admin access."
+      ],
+      "blockers": [
+        "No task-specific acceptance criteria or authorization tests were supplied."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4154e590-1c77-49f2-bd45-44236cffb8dd",
+        "taskId": "5fcc8ac5-0656-460e-9951-8714862cda90",
+        "engineeringId": null
+      },
+      "title": "Role system (Admin / Student)",
+      "dmdPlanningState": "completed",
+      "implementation": "partial",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "src/types/auth.ts",
+            "app/admin/layout.tsx",
+            "app/login/page.tsx",
+            "app/register/page.tsx"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Frontend role union is client | admin; admin route guard is present."
+      ],
+      "remainingWork": [
+        "Resolve whether DMD Student corresponds to repository client; update the canonical role wording only after owner confirmation."
+      ],
+      "blockers": [
+        "The canonical role equivalence is unknown."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "aea8a05d-dbad-412e-b68f-00d27983b03b",
+        "engineeringId": null
+      },
+      "title": "PostgreSQL",
+      "dmdPlanningState": "completed",
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "not_observed",
+      "locations": [],
+      "evidenceRefs": [],
+      "remainingWork": [],
+      "blockers": [
+        "Persistence implementation is outside the selected frontend repository."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "058eb8df-69ab-47d0-8b69-dd2de9313e68",
+        "engineeringId": null
+      },
+      "title": "Redis integration",
+      "dmdPlanningState": "completed",
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "not_observed",
+      "locations": [],
+      "evidenceRefs": [],
+      "remainingWork": [],
+      "blockers": [
+        "Infrastructure integration is outside the selected frontend repository."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "14728ce1-9f2a-468c-8be0-d787f2edca7c",
+        "engineeringId": null
+      },
+      "title": "Railway deployment",
+      "dmdPlanningState": "completed",
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "not_observed",
+      "locations": [],
+      "evidenceRefs": [],
+      "remainingWork": [],
+      "blockers": [
+        "Deployment state is outside the selected frontend repository and was not queried."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "1d2737ab-c7c7-4181-b58e-71156a345784",
+        "engineeringId": null
+      },
+      "title": "Environment management",
+      "dmdPlanningState": "completed",
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "not_observed",
+      "locations": [],
+      "evidenceRefs": [],
+      "remainingWork": [],
+      "blockers": [
+        "Production environment configuration was not inspected; no environment file values were read."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "a63b6095-26f3-409e-b4de-b0bd5a65f205",
+        "engineeringId": null
+      },
+      "title": "API gateway preparation",
+      "dmdPlanningState": "completed",
+      "implementation": "partial",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "app/api/chat/route.ts",
+            "app/api/tutor/turn/route.ts",
+            "src/lib/backend.ts"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Next.js BFF routes proxy requests to the configured backend."
+      ],
+      "remainingWork": [
+        "Define and verify the gateway boundary, route policy, request validation, and failure behavior."
+      ],
+      "blockers": [
+        "No independent gateway service or gateway acceptance criteria were supplied."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "4babc77a-16ba-42d4-bdd0-430c245825dc",
+        "engineeringId": null
+      },
+      "title": "Rate limiting",
+      "dmdPlanningState": "completed",
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "not_observed",
+      "locations": [],
+      "evidenceRefs": [],
+      "remainingWork": [],
+      "blockers": [
+        "Rate limiting provider behavior is outside the selected frontend repository."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "2ecd339b-7f62-44ba-aa4c-845833cf85fe",
+        "taskId": "b2453da8-fbc6-43eb-87de-7dcee3eef77b",
+        "engineeringId": null
+      },
+      "title": "Logging",
+      "dmdPlanningState": "completed",
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "not_observed",
+      "locations": [],
+      "evidenceRefs": [],
+      "remainingWork": [],
+      "blockers": [
+        "Backend logging is outside the selected frontend repository."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "taskId": "482b9b67-6db1-46fc-88ed-bfbc1460f405",
+        "engineeringId": null
+      },
+      "title": "Create Learning Space",
+      "dmdPlanningState": "completed",
+      "implementation": "partial",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "src/components/SpacesView.tsx",
+            "app/api/spaces/route.ts",
+            "src/types/space.ts"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "UI collects scenario, level, and persona, posts to /api/spaces, and reports success/errors."
+      ],
+      "remainingWork": [
+        "Validate API payloads at the BFF boundary and test persistence/authorization with the backend."
+      ],
+      "blockers": [
+        "Backend persistence and acceptance behavior are outside this frontend-only audit."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "taskId": "92ee7256-6a2d-4540-a59c-a80afb596216",
+        "engineeringId": null
+      },
+      "title": "Delete Learning Space",
+      "dmdPlanningState": "completed",
+      "implementation": "partial",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "src/components/DeleteSpaceButton.tsx",
+            "src/components/SlotCard.tsx",
+            "app/api/spaces/[id]/route.ts"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "UI calls DELETE /api/spaces/{id}, refreshes on success, and reports errors."
+      ],
+      "remainingWork": [
+        "Test authorization, persistence, and failure cases with the backend."
+      ],
+      "blockers": [
+        "Backend delete semantics are outside this frontend-only audit."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "taskId": "becf704a-7c5a-464b-9967-42c7d8b0ea6f",
+        "engineeringId": null
+      },
+      "title": "Space limits (5)",
+      "dmdPlanningState": "completed",
+      "implementation": "partial",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "src/components/SpacesView.tsx",
+            "src/types/space.ts"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "UI caps available slots using MAX_SPACES and handles backend 409."
+      ],
+      "remainingWork": [
+        "Verify the authoritative limit under concurrent requests and test server responses."
+      ],
+      "blockers": [
+        "Backend enforcement was not part of the selected repository."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "taskId": "f8299448-1ab7-4b5d-8cb3-0a67c26fc445",
+        "engineeringId": null
+      },
+      "title": "Scenario selection",
+      "dmdPlanningState": "completed",
+      "implementation": "implemented",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "src/components/SpacesView.tsx",
+            "src/types/space.ts"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Scenario chips are rendered from the scenario option set and required before submit."
+      ],
+      "remainingWork": [
+        "Confirm canonical scenario option coverage and server validation after scope is approved."
+      ],
+      "blockers": [
+        "The supplied task contains no acceptance criteria."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "taskId": "0fc70fe5-b946-4179-8881-afc28a35fcf9",
+        "engineeringId": null
+      },
+      "title": "Level selection",
+      "dmdPlanningState": "completed",
+      "implementation": "implemented",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "src/components/SpacesView.tsx",
+            "src/types/space.ts"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Level chips are rendered from the level option set and required before submit."
+      ],
+      "remainingWork": [
+        "Confirm canonical level coverage and server validation after scope is approved."
+      ],
+      "blockers": [
+        "The supplied task contains no acceptance criteria."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "85155ea4-8760-4c22-ac96-099345abf4ed",
+        "taskId": "3f20fd5e-894a-4c15-bc20-99fc180deab8",
+        "engineeringId": null
+      },
+      "title": "Tutor selection",
+      "dmdPlanningState": "completed",
+      "implementation": "implemented",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "src/components/SpacesView.tsx",
+            "src/types/space.ts"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Tutor persona chips are rendered from the option set and required before submit."
+      ],
+      "remainingWork": [
+        "Confirm canonical persona options and server behavior after scope is approved."
+      ],
+      "blockers": [
+        "The supplied task contains no acceptance criteria."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "e67e32c3-e741-47df-91d3-235cd9e69907",
+        "taskId": "2fee66ed-fb1f-44a5-b450-4eb52ee05194",
+        "engineeringId": null
+      },
+      "title": "2.1 Classroom Navigation",
+      "dmdPlanningState": "completed",
+      "implementation": "implemented",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "src/components/ClassroomMenu.tsx",
+            "app/app/spaces/[spaceId]/page.tsx",
+            "app/app/spaces/[spaceId]/conversation/page.tsx"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Classroom menu and nested space/conversation routes are present."
+      ],
+      "remainingWork": [
+        "Test invalid/missing space IDs and authorized navigation after scope confirmation."
+      ],
+      "blockers": [
+        "Backend ownership checks were not exercised."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "e67e32c3-e741-47df-91d3-235cd9e69907",
+        "taskId": "96934296-6b55-4040-b265-1b920611c56b",
+        "engineeringId": null
+      },
+      "title": "2.2 Conversation MVP",
+      "dmdPlanningState": "completed",
+      "implementation": "partial",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "src/components/Conversation.tsx",
+            "app/api/tutor/turn/route.ts",
+            "src/lib/apiClient.ts"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Conversation UI sends turns through the BFF, handles 401/errors, and renders assistant responses."
+      ],
+      "remainingWork": [
+        "Run behavior tests with an approved backend test environment and validate the server payload at the BFF."
+      ],
+      "blockers": [
+        "Tutor provider and persistence are outside this frontend-only audit."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "e67e32c3-e741-47df-91d3-235cd9e69907",
+        "taskId": "27a88378-fde3-476e-a357-730e88d1f9a9",
+        "engineeringId": null
+      },
+      "title": "2.3 Structured Corrections",
+      "dmdPlanningState": "completed",
+      "implementation": "implemented",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "src/components/CorrectionCard.tsx",
+            "src/components/TutorMessage.tsx"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Correction card renders the structured correction, severity, category, explanation, and translation fields."
+      ],
+      "remainingWork": [
+        "Add component tests for empty, partial, and populated correction payloads."
+      ],
+      "blockers": [
+        "No task-specific acceptance criteria or UI regression tests were supplied."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+        "taskId": "051184c3-7119-4e5a-9ce4-932027c49f7d",
+        "engineeringId": null
+      },
+      "title": "Structured Tutor Response",
+      "dmdPlanningState": "completed",
+      "implementation": "partial",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "src/types/tutor.ts",
+            "src/components/Conversation.tsx",
+            "src/components/CorrectionCard.tsx"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Frontend consumes TutorTurnResponse and displays its structured correction/mistake fields."
+      ],
+      "remainingWork": [
+        "Validate generated response schema and provider behavior in the backend."
+      ],
+      "blockers": [
+        "The engine generating the response is outside the selected repository."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+        "taskId": "f1b9182b-d6f0-4bea-bc65-4e1013cbaebb",
+        "engineeringId": null
+      },
+      "title": "Mistake Tracking Engine",
+      "dmdPlanningState": "completed",
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "not_observed",
+      "locations": [],
+      "evidenceRefs": [
+        "CorrectionCard displays mistake objects but does not implement the tracking engine."
+      ],
+      "remainingWork": [],
+      "blockers": [
+        "Tracking and persistence implementation are outside the selected frontend repository."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+        "taskId": "60ff964c-a2b3-422f-9c2b-3018423448e6",
+        "engineeringId": null
+      },
+      "title": "Learning Profile",
+      "dmdPlanningState": "completed",
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "not_observed",
+      "locations": [],
+      "evidenceRefs": [],
+      "remainingWork": [],
+      "blockers": [
+        "Learning-profile generation and persistence are outside the selected frontend repository."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+        "taskId": "7ebda9c1-7557-4483-a363-3450b80fe57b",
+        "engineeringId": null
+      },
+      "title": "Adaptive Prompt Builder",
+      "dmdPlanningState": "in_progress",
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "not_observed",
+      "locations": [],
+      "evidenceRefs": [],
+      "remainingWork": [],
+      "blockers": [
+        "Prompt construction is outside the selected frontend repository; DMD in_progress planning state is not repository evidence."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "4f568649-5900-42cf-a1ca-1e3a292cfab1",
+        "taskId": "8615c4f8-d8be-4a6b-b40a-8468ffd16abb",
+        "engineeringId": null
+      },
+      "title": "Hybrid assessment engine",
+      "dmdPlanningState": "completed",
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "not_observed",
+      "locations": [],
+      "evidenceRefs": [],
+      "remainingWork": [],
+      "blockers": [
+        "Assessment-engine implementation is outside the selected frontend repository."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "723b32a8-9bdf-48bf-b611-55ffe04fefbf",
+        "taskId": "882e6b54-f200-435e-8628-3b7b7ce5fc30",
+        "engineeringId": null
+      },
+      "title": "Progress Dashboard",
+      "dmdPlanningState": "pending",
+      "implementation": "partial",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "app/app/page.tsx"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Current learner page is centered on Learning Spaces and space count; no progress dashboard was observed."
+      ],
+      "remainingWork": [
+        "Implement user-facing progress/analytics presentation only after the scope and acceptance criteria are confirmed."
+      ],
+      "blockers": [
+        "No approved baseline or task criteria were supplied."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "723b32a8-9bdf-48bf-b611-55ffe04fefbf",
+        "taskId": "658ea083-0e25-4e77-8bed-6d5e906feae5",
+        "engineeringId": null
+      },
+      "title": "Four Linguistic Pillars",
+      "dmdPlanningState": "pending",
+      "implementation": "partial",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "src/components/CorrectionCard.tsx",
+            "src/types/tutor.ts"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Correction categories are displayed; no learner-facing four-pillar progress analytics were observed."
+      ],
+      "remainingWork": [
+        "Define and implement the approved pillar-level presentation and analytics contract."
+      ],
+      "blockers": [
+        "No approved task criteria or source analytics contract."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "3bd1fec3-756d-46fe-9c34-2f882fd8383a",
+        "taskId": "8bcccf9a-edb3-4d0c-ba3d-12ee752e59ec",
+        "engineeringId": null
+      },
+      "title": "Admin Panel",
+      "dmdPlanningState": "pending",
+      "implementation": "partial",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "app/admin/layout.tsx",
+            "app/admin/page.tsx"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Server-side admin role guard exists; dashboard sections render as static rows with no management flows."
+      ],
+      "remainingWork": [
+        "Wire and test approved management flows and authorization for each operation."
+      ],
+      "blockers": [
+        "Admin operations and data contracts are not supplied."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "3bd1fec3-756d-46fe-9c34-2f882fd8383a",
+        "taskId": "ed24af09-4144-42c3-897c-49a3d1b82bd6",
+        "engineeringId": null
+      },
+      "title": "Scenario Builder",
+      "dmdPlanningState": "pending",
+      "implementation": "partial",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "app/admin/page.tsx",
+            "src/types/space.ts"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "Admin scenario category is a static placeholder; scenario selection for a learner is separate from authoring."
+      ],
+      "remainingWork": [
+        "Implement scenario authoring and persistence after the management contract is approved."
+      ],
+      "blockers": [
+        "No authoring acceptance criteria or management API contract were supplied."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "f62df4fe-ec0d-4673-966f-ef4bd90485f9",
+        "taskId": "48245791-8fec-4e71-b66b-4ccefa87a805",
+        "engineeringId": null
+      },
+      "title": "Speech-to-Text",
+      "dmdPlanningState": "pending",
+      "implementation": "partial",
+      "verification": "not_run",
+      "deliveryStage": "on_main",
+      "locations": [
+        {
+          "kind": "main",
+          "ref": "refs/remotes/origin/main",
+          "sha": "28389e024de2c20f7843f82f56e5d3c42cc0ced3",
+          "repository": "CikaDraza/spiritualized-ai-bot",
+          "files": [
+            "src/hooks/useVoice.ts",
+            "src/components/Conversation.tsx"
+          ]
+        }
+      ],
+      "evidenceRefs": [
+        "useVoice wraps browser SpeechRecognition but Conversation does not consume the hook and Voice mode is a toast placeholder."
+      ],
+      "remainingWork": [
+        "Integrate the speech hook into the conversation UI and test supported/unsupported browser behavior."
+      ],
+      "blockers": [
+        "No browser acceptance matrix or voice UI criteria were supplied."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "f62df4fe-ec0d-4673-966f-ef4bd90485f9",
+        "taskId": "a9a82f9a-2c57-40eb-bd96-a77a64067cdd",
+        "engineeringId": null
+      },
+      "title": "OpenAI Realtime Integration",
+      "dmdPlanningState": "pending",
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "not_observed",
+      "locations": [],
+      "evidenceRefs": [],
+      "remainingWork": [],
+      "blockers": [
+        "No Realtime API client or voice-to-voice UI was observed in the selected frontend code tree."
+      ]
+    },
+    {
+      "subject": {
+        "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+        "milestoneId": "f62df4fe-ec0d-4673-966f-ef4bd90485f9",
+        "taskId": "36379ec3-b572-4bca-b02a-035e7a52b2e4",
+        "engineeringId": null
+      },
+      "title": "Pronunciation Coaching",
+      "dmdPlanningState": "pending",
+      "implementation": "not_observed",
+      "verification": "not_run",
+      "deliveryStage": "not_observed",
+      "locations": [],
+      "evidenceRefs": [],
+      "remainingWork": [],
+      "blockers": [
+        "No pronunciation scoring/coaching UI was observed in the selected frontend code tree."
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "name": "Frontend regression tests",
+      "command": "npm test",
+      "result": "passed",
+      "exitCode": 0,
+      "tests": 3,
+      "sourceSha": "fc7b558af473cf3da6465520e4b65cfa80d50ab9",
+      "sourceTreeSha": "1e1be56d964d0c266cabfaef55b771350c3e72f7",
+      "harnessPatchSha256": "ee605ccbc47451efc457906ece0fc73c784485f12ea318ee076020033e393aa7",
+      "note": "The local test script and test file were pre-existing uncommitted harness changes; HEAD:package.json has no test script."
+    },
+    {
+      "name": "Failure exit behavior",
+      "command": "npm test with a temporary intentionally failing assertion; probe file removed afterward",
+      "result": "expected_failure_exit_confirmed",
+      "exitCode": 1,
+      "sourceSha": "fc7b558af473cf3da6465520e4b65cfa80d50ab9"
+    },
+    {
+      "name": "TypeScript",
+      "command": "npx --no-install tsc --noEmit",
+      "result": "passed",
+      "exitCode": 0,
+      "sourceSha": "fc7b558af473cf3da6465520e4b65cfa80d50ab9",
+      "sourceTreeSha": "1e1be56d964d0c266cabfaef55b771350c3e72f7"
+    },
+    {
+      "name": "ESLint",
+      "command": "npm run lint -- --no-cache",
+      "result": "completed_with_warnings",
+      "exitCode": 0,
+      "errors": 0,
+      "warnings": 4,
+      "sourceSha": "fc7b558af473cf3da6465520e4b65cfa80d50ab9",
+      "note": "The local architecture rule requires zero warnings; this check did not meet that threshold."
+    },
+    {
+      "name": "Next.js production build",
+      "command": "npm run build",
+      "result": "passed",
+      "exitCode": 0,
+      "sourceSha": "fc7b558af473cf3da6465520e4b65cfa80d50ab9",
+      "sourceTreeSha": "1e1be56d964d0c266cabfaef55b771350c3e72f7",
+      "routes": 23,
+      "note": "Built locally; no production services or provider calls were exercised."
+    },
+    {
+      "name": "Fallow",
+      "command": "local executable presence check",
+      "result": "unavailable",
+      "exitCode": null,
+      "note": "fallow is not installed; no external tool/dependency was installed."
+    },
+    {
+      "name": "Fallow skills",
+      "command": "npx skills add fallow-rs/fallow-skills",
+      "result": "not_run",
+      "exitCode": null,
+      "note": "Not run because it would install an external tool without approval."
+    },
+    {
+      "name": "Production/runtime verification",
+      "command": "not run",
+      "result": "not_run",
+      "exitCode": null,
+      "note": "No Vercel production, backend, database, email, Redis, or paid-provider access was used."
+    }
+  ],
+  "provenance": {
+    "sourceAudits": [
+      {
+        "reference": "workspace-root/.dmd/projects/d9d435d4-ab36-41f1-93c5-7b435ce270d6/audits/20261017T031128Z/repository-audit.json",
+        "payloadSha256": "b5ef3b1cbdddf2ad6d4827d15a811d1496bcb4f172834c0180375592ccf70049",
+        "observedAt": "2026-10-17T03:11:28Z",
+        "sourceContext": {
+          "schema": "dmd.project-audit-context.v1",
+          "revision": "d6d8f3000bf6de23400da011a19cd7c45d181b5027d38892950cd37cc743bd1d"
+        },
+        "scopeNote": "Historical combined backend-and-frontend audit; coverage is broader than this frontend-only report."
+      },
+      {
+        "reference": ".dmd/projects/d9d435d4-ab36-41f1-93c5-7b435ce270d6/audits/20261018T205421Z/repository-audit.json",
+        "payloadSha256": "385c4a2ec5ca82fbfa37163e842552f1f5cf2dd573c85b3b9ddcf08185dad461",
+        "observedAt": "2026-10-18T20:54:21Z",
+        "sourceContext": {
+          "schema": "dmd.project-audit-context.v1",
+          "revision": "ed1dcbdb798ae68bc9052646820c168b809306c404ec8fd0738ce02dd3a42483"
+        },
+        "scopeNote": "Exact original bytes of this frontend repository audit."
+      }
+    ]
+  },
+  "unmappedRepositoryFindings": [
+    {
+      "title": "Next.js API request bodies are forwarded without route-level Zod validation",
+      "files": [
+        "app/api/auth/register/route.ts",
+        "app/api/auth/login/route.ts",
+        "app/api/spaces/route.ts",
+        "app/api/tutor/turn/route.ts"
+      ],
+      "summary": "The BFF reads request bodies as text and forwards them; client-form Zod checks do not validate direct requests at the API boundary. This differs from ARCHITECTURAL_RULES.md section 2.2 and needs an owner-approved scope decision before implementation."
+    },
+    {
+      "title": "Password reset and social authentication are not wired in the inspected UI",
+      "files": [
+        "app/login/page.tsx",
+        "app/register/page.tsx"
+      ],
+      "summary": "The supplied project scope mentions password reset; the login page shows social-provider placeholders and no reset-password flow was observed. No task ID or acceptance criterion for this behavior was supplied."
+    },
+    {
+      "title": "Existing agent instructions need a reviewed DMD reference",
+      "files": [
+        "AGENTS.md",
+        "CLAUDE.md"
+      ],
+      "summary": "Existing Next.js-specific instructions were preserved because the create-only bootstrap must not replace them. They do not conflict with the supplied DMD rules; propose a human-reviewed link/addition rather than appending automatically."
+    }
+  ],
+  "proposedNextWork": [
+    "Obtain owner confirmation of the missing approved baseline and task acceptance criteria; keep the current audit findings separate from DMD acceptance.",
+    "Resolve whether repository role client is canonically equivalent to the DMD Student role.",
+    "Review and approve the frontend API-boundary validation requirement before making code changes.",
+    "Plan owner-approved work for the incomplete progress dashboard, admin management/scenario builder, and speech-to-text integration.",
+    "Verify production deployment/runtime and integrated backend behavior with authorized evidence.",
+    "Review the suggested DMD reference in AGENTS.md/CLAUDE.md and approve any addition explicitly."
+  ],
+  "limitations": [
+    "This audit covers CikaDraza/spiritualized-ai-bot only; backend and infrastructure tasks marked not_observed are outside this repository and are not evidence of project-wide absence.",
+    "DMD planning states are preserved separately from repository observations; 30 completed, 1 in_progress, and 7 pending planning states do not establish implementation or acceptance.",
+    "All 38 supplied tasks have empty acceptanceCriteria and approvedScope.status is missing_baseline; formal scope and acceptance confirmation remains required.",
+    "The DMD repository ID was confirmed through GitHub read-only API, but this report does not authenticate a DMD-side task binding or acceptance.",
+    "No existing engineering-state.json was present; no unsupported engineering-state schema was created.",
+    "Local DMD policy copies reference internal canonical documents not included in the portable packet."
+  ]
+}

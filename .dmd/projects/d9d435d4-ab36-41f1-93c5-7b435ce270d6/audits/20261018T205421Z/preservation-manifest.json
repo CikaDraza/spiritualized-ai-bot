@@ -1,0 +1,39 @@
+{
+  "schema": "dmd.audit-preservation.v1",
+  "projectId": "d9d435d4-ab36-41f1-93c5-7b435ce270d6",
+  "repository": "CikaDraza/spiritualized-ai-bot",
+  "observedAt": "2026-10-18T20:54:21Z",
+  "report": {
+    "path": ".dmd/projects/d9d435d4-ab36-41f1-93c5-7b435ce270d6/audits/20261018T205421Z/distribution/repository-audit.json",
+    "sha256": "e3449302b9a05f6cd3d0ac5756fd7628c7b7649736229721d8d929a0bd03899f",
+    "bytes": 52045
+  },
+  "original": {
+    "sha256": "385c4a2ec5ca82fbfa37163e842552f1f5cf2dd573c85b3b9ddcf08185dad461",
+    "preservation": "exact_bytes_in_private_local_archive"
+  },
+  "sourceContext": {
+    "schema": "dmd.project-audit-context.v1",
+    "revision": "ed1dcbdb798ae68bc9052646820c168b809306c404ec8fd0738ce02dd3a42483",
+    "path": "../../contexts/ed1dcbdb798ae68bc9052646820c168b809306c404ec8fd0738ce02dd3a42483.json",
+    "sha256": "161b984f8fd7004d060ed1ca43ac9efe105be442bfdd68769aab84132dc247bf"
+  },
+  "taskCount": 38,
+  "claimCounts": {
+    "implementation": {
+      "not_observed": 13,
+      "partial": 18,
+      "implemented": 7
+    },
+    "verification": {
+      "not_run": 38
+    },
+    "deliveryStage": {
+      "not_observed": 13,
+      "on_main": 25
+    }
+  },
+  "independentlyVerified": false,
+  "taskAccepted": false,
+  "preservationOnly": true
+}
