@@ -3,8 +3,8 @@
  * Koristi se za sve zahteve koji trebaju da idu do backend-a
  */
 
-const BACKEND_URL =
-  process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://127.0.0.1:8000";
+// The same backend the BFF routes use, so /api/health reports the backend the app really talks to.
+import { BACKEND_URL } from "./backend";
 
 export async function proxyRequest(
   endpoint: string,
