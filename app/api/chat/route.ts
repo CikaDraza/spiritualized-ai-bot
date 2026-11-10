@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-
-const BACKEND_URL = process.env.BACKEND_URL ?? "http://127.0.0.1:8000";
+import { getBackendUrl } from "@/lib/backend";
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
@@ -20,7 +19,7 @@ export async function POST(req: NextRequest) {
   const authHeader = req.headers.get("authorization");
 
   try {
-    const response = await fetch(`${BACKEND_URL}/chat`, {
+    const response = await fetch(`${getBackendUrl()}/chat`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,7 +32,7 @@ export async function POST(req: NextRequest) {
       const fallback = await response.text();
       return NextResponse.json(
         {
-          assistant: `Backend se ne može povezati. Proveri backend server na ${BACKEND_URL}.\n\n${fallback}`,
+          assistant: `Backend se ne može povezati.\n\n${fallback}`,
         },
         { status: 502 },
       );

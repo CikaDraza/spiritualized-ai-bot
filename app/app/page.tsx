@@ -6,7 +6,7 @@ import BottomNav from "@/components/BottomNav";
 import LogoutButton from "@/components/LogoutButton";
 import ResendVerificationButton from "@/components/ResendVerificationButton";
 import SpacesView from "@/components/SpacesView";
-import { BACKEND_URL } from "@/lib/backend";
+import { getBackendUrl } from "@/lib/backend";
 import type { UserProfile } from "@/types/auth";
 import { MAX_SPACES, type Space } from "@/types/space";
 
@@ -23,7 +23,7 @@ export default async function LearningSpacesPage() {
 
   let meRes: Response | null = null;
   try {
-    meRes = await fetch(`${BACKEND_URL}/auth/me`, {
+    meRes = await fetch(`${getBackendUrl()}/auth/me`, {
       headers: { cookie: cookieHeader },
       cache: "no-store",
     });
@@ -36,7 +36,7 @@ export default async function LearningSpacesPage() {
   // Spaces require a verified email on the backend (403 otherwise) — treat as empty.
   let spaces: Space[] = [];
   try {
-    const r = await fetch(`${BACKEND_URL}/spaces`, {
+    const r = await fetch(`${getBackendUrl()}/spaces`, {
       headers: { cookie: cookieHeader },
       cache: "no-store",
     });

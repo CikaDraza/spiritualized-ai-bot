@@ -1,10 +1,10 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-import { BACKEND_URL, relaySetCookies } from "@/lib/backend";
+import { getBackendUrl, relaySetCookies } from "@/lib/backend";
 
 export async function POST(req: NextRequest) {
   const body = await req.text();
-  const backendRes = await fetch(`${BACKEND_URL}/auth/register`, {
+  const backendRes = await fetch(`${getBackendUrl()}/auth/register`, {
     method: "POST",
     headers: { "content-type": "application/json" },
     body,

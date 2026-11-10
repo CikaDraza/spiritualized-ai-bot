@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-import { BACKEND_URL } from "@/lib/backend";
+import { getBackendUrl } from "@/lib/backend";
 import type { UserProfile } from "@/types/auth";
 
 /** Guards every /admin/* route: must be signed in AND have role "admin". */
@@ -14,7 +14,7 @@ export default async function AdminLayout({
 
   let res: Response | null = null;
   try {
-    res = await fetch(`${BACKEND_URL}/auth/me`, {
+    res = await fetch(`${getBackendUrl()}/auth/me`, {
       headers: { cookie: cookieHeader },
       cache: "no-store",
     });
