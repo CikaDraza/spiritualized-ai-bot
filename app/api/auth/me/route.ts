@@ -1,9 +1,9 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-import { BACKEND_URL } from "@/lib/backend";
+import { getBackendUrl } from "@/lib/backend";
 
 export async function GET(req: NextRequest) {
-  const backendRes = await fetch(`${BACKEND_URL}/auth/me`, {
+  const backendRes = await fetch(`${getBackendUrl()}/auth/me`, {
     headers: { cookie: req.headers.get("cookie") ?? "" },
     cache: "no-store",
   });

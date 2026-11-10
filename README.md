@@ -17,9 +17,9 @@ cp .env.example .env.local   # once; BACKEND_URL=http://localhost:8000
 npm run dev          # http://localhost:3016
 ```
 
-In `npm run dev` the frontend talks only to `BACKEND_URL`. When `BACKEND_URL` is missing it uses <http://127.0.0.1:8000>, and **never** `NEXT_PUBLIC_API_URL`, the production backend's address on Vercel. So a local run cannot reach production unnoticed.
+In `npm run dev` the frontend talks only to `BACKEND_URL`. When it is missing, the server uses <http://127.0.0.1:8000>. Outside development, `BACKEND_URL` must be set.
 
-`/api/health` reports which backend it reached (`source: local` or `railway`).
+`/api/health` reports only whether the app is available.
 
 ## What a user can do
 

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 import ClassroomMenu from "@/components/ClassroomMenu";
-import { BACKEND_URL } from "@/lib/backend";
+import { getBackendUrl } from "@/lib/backend";
 import { classroomTitle } from "@/lib/scenario";
 import type { Space } from "@/types/space";
 
@@ -18,7 +18,7 @@ export default async function ClassroomPage({
 
   let res: Response | null = null;
   try {
-    res = await fetch(`${BACKEND_URL}/spaces/${spaceId}`, {
+    res = await fetch(`${getBackendUrl()}/spaces/${spaceId}`, {
       headers: { cookie: cookieHeader },
       cache: "no-store",
     });

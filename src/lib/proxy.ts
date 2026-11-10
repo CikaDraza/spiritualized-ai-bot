@@ -3,8 +3,7 @@
  * Koristi se za sve zahteve koji trebaju da idu do backend-a
  */
 
-// The same backend the BFF routes use, so /api/health reports the backend the app really talks to.
-import { BACKEND_URL } from "./backend";
+import { getBackendUrl } from "./backend";
 
 export async function proxyRequest(
   endpoint: string,
@@ -26,7 +25,7 @@ export async function proxyRequest(
   }
 
   try {
-    const response = await fetch(`${BACKEND_URL}${endpoint}`, {
+    const response = await fetch(`${getBackendUrl()}${endpoint}`, {
       ...options,
       headers,
     });
@@ -40,8 +39,4 @@ export async function proxyRequest(
     console.error(`Proxy error for ${endpoint}:`, error);
     throw error;
   }
-}
-
-export function getBackendUrl(): string {
-  return BACKEND_URL;
 }

@@ -1,9 +1,9 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-import { BACKEND_URL, relaySetCookies } from "@/lib/backend";
+import { getBackendUrl, relaySetCookies } from "@/lib/backend";
 
 export async function POST(req: NextRequest) {
-  const backendRes = await fetch(`${BACKEND_URL}/auth/logout`, {
+  const backendRes = await fetch(`${getBackendUrl()}/auth/logout`, {
     method: "POST",
     headers: { cookie: req.headers.get("cookie") ?? "" },
     cache: "no-store",

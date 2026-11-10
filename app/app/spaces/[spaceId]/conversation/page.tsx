@@ -2,7 +2,7 @@ import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 
 import Conversation from "@/components/Conversation";
-import { BACKEND_URL } from "@/lib/backend";
+import { getBackendUrl } from "@/lib/backend";
 import type { Space } from "@/types/space";
 
 export default async function ConversationPage({
@@ -15,7 +15,7 @@ export default async function ConversationPage({
 
   let res: Response | null = null;
   try {
-    res = await fetch(`${BACKEND_URL}/spaces/${spaceId}`, {
+    res = await fetch(`${getBackendUrl()}/spaces/${spaceId}`, {
       headers: { cookie: cookieHeader },
       cache: "no-store",
     });
