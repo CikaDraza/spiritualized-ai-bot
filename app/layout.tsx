@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Overpass, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { Toaster } from "sonner";
 import QueryProvider from "@/components/QueryProvider";
 import "./globals.css";
 
-const overpass = Overpass({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+const overpass = localFont({
+  src: "./fonts/Overpass.ttf",
+  weight: "400 900",
   variable: "--font-overpass",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const inter = localFont({
+  src: "./fonts/Inter.ttf",
+  weight: "400 700",
   variable: "--font-inter",
 });
 
